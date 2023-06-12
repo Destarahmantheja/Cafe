@@ -1,4 +1,6 @@
 package com.uas.cafe.Activity;
 
-public class TambahActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class TambahActivity extends AppCompatActivity {
 }

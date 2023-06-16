@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.telecom.Call;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -19,8 +18,13 @@ import com.uas.cafe.Model.ModelCafe;
 import com.uas.cafe.Model.ModelRespon;
 import com.uas.cafe.R;
 
+import com.uas.cafe.Activity.MainActivity;
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,4 +57,41 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        retrieveCafe();
+    }
+
+    public void retrieveCafe(){
+        pbCafe.setVisibility(View.VISIBLE);
+
+        APIRequestData API = RetroServer.konekRetrofit().create(APIRequestData.class);
+        retrofit2.Call<ModelRespon> proses = API.ardRetrieve();
+
+        proses.enqueue(new Callback<ModelRespon>() {
+            @Override
+            public void onResponse(retrofit2.Call<ModelRespon> call, Response<ModelRespon> response) {
+                String kode = response.body().getKode();
+                String pesan = response.body().getPesan();
+                listCafe = response.body().getData();
+
+                adCafe = new AdapterCafe(MainActivity.this, listCafe);
+                rvCafe.setAdapter(adCafe);
+                adCafe.notifyDataSetChanged();
+
+                pbCafe.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onFailure(Call<ModelRespon> call, Throwable t) {
+                Toast.makeText(MainActivity.this, "Gagal Menghubungi Server!", Toast.LENGTH_SHORT).show();
+                pbCafe.setVisibility(View.GONE);
+
+            }
+        });
+
+    }
+
 }
+

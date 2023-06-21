@@ -2,14 +2,23 @@ package com.uas.cafe.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.uas.cafe.API.APIRequestData;
+import com.uas.cafe.API.RetroServer;
+import com.uas.cafe.Model.ModelRespon;
 import com.uas.cafe.R;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class UbahActivity extends AppCompatActivity {
     private String yId, yNama, yAlamat, yDeskripsi, yRating;
@@ -65,9 +74,33 @@ public class UbahActivity extends AppCompatActivity {
                     etRating.setError("Deskripsi Tidak Boleh Kosong");
                 }
                 else {
-
+                    ubahCafe();
                 }
             }
         });
     }
+    private void ubahCafe(){
+        APIRequestData API = RetroServer.konekRetrofit().create(APIRequestData.class);
+        Call<ModelRespon> proses = API.ardUpdate(yId, nama, alamat, deskripsi, rating);
+
+        proses.enqueue(new Callback<ModelRespon>() {
+            @Override
+            public void onResponse(Call<ModelRespon> call, Response<ModelRespon> response) {
+                String kode, pesan;
+                kode = response.body().getKode();
+                pesan = response.body().getPesan();
+
+                Toast.makeText(UbahActivity.this,"Kode : " + kode + "Pesan : " + pesan, Toast.LENGTH_SHORT).show();
+                finish();
+            }
+
+            @Override
+            public void onFailure(Call<ModelRespon> call, Throwable t) {
+                Toast.makeText(UbahActivity.this, "Gagal Menghubungi Server!", Toast.LENGTH_SHORT).show();
+                Log.d("Disini","Errornya itu: "+ t.getMessage());
+
+            }
+        });
+    }
 }
+

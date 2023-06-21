@@ -68,13 +68,18 @@
                 android:layout_marginLeft="2dp"
                 android:textStyle="bold"
                 android:backgroundTint="#978468"/>
+            <Button
+                android:id="@+id/btn_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Detail"
+                android:drawableLeft="@drawable/ic_detail"
+                android:layout_weight="1"
+                android:layout_marginLeft="2dp"
+                android:backgroundTint="#978468"/>
+
 
         </LinearLayout>
-
-
-
-
-
 
     </LinearLayout>
 

@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.uas.cafe.API.APIRequestData;
 import com.uas.cafe.API.RetroServer;
+import com.uas.cafe.Activity.DetailActivity;
 import com.uas.cafe.Activity.MainActivity;
 import com.uas.cafe.Activity.UbahActivity;
 import com.uas.cafe.Model.ModelCafe;
@@ -53,7 +54,7 @@ public class AdapterCafe extends RecyclerView.Adapter<AdapterCafe.VHCafe> {
     }
     public class VHCafe extends RecyclerView.ViewHolder{
         TextView tvId, tvNama, tvAlamat, tvDeskripsi, tvRating;
-        Button btnHapus, btnUbah;
+        Button btnHapus, btnUbah, btnDetail;
 
         public VHCafe(@NonNull View itemView) {
             super(itemView);
@@ -65,6 +66,7 @@ public class AdapterCafe extends RecyclerView.Adapter<AdapterCafe.VHCafe> {
             tvRating = itemView.findViewById(R.id.tv_rating);
             btnHapus = itemView.findViewById(R.id.btn_hapus);
             btnUbah = itemView.findViewById(R.id.btn_ubah);
+            btnDetail = itemView.findViewById(R.id.btn_detail);
 
             btnHapus.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -84,6 +86,18 @@ public class AdapterCafe extends RecyclerView.Adapter<AdapterCafe.VHCafe> {
                     pindah.putExtra("xRating", tvRating.getText().toString());
                     ctx.startActivity(pindah);
 
+                }
+            });
+            btnDetail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent pindah = new Intent(ctx, DetailActivity.class);
+                    pindah.putExtra("xId", tvId.getText().toString());
+                    pindah.putExtra("xNama", tvNama.getText().toString());
+                    pindah.putExtra("xAlamat", tvAlamat.getText().toString());
+                    pindah.putExtra("xDeskripsi", tvDeskripsi.getText().toString());
+                    pindah.putExtra("xRating", tvRating.getText().toString());
+                    ctx.startActivity(pindah);
                 }
             });
         }

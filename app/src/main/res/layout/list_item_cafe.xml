@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="6dp"
     android:elevation="32dp">
 
@@ -16,7 +17,8 @@
             android:id="@+id/tv_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ID"/>
+            android:text="ID"
+            android:visibility="gone"/>
         <TextView
             android:id="@+id/tv_nama"
             android:layout_width="wrap_content"
@@ -37,9 +39,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rating"/>
+        <TextView
+            android:id="@+id/tv_koordinat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Koordinat"/>
 
         <LinearLayout
-
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -50,24 +56,12 @@
                 android:id="@+id/btn_ubah"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:height="40dp"
                 android:text="Ubah"
                 android:drawableLeft="@drawable/ic_ubah"
                 android:layout_weight="1"
                 android:layout_marginRight="2dp"
-                android:textStyle="bold"
-                android:backgroundTint="#978468"/>
-
-            <Button
-                android:id="@+id/btn_hapus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hapus"
-                android:drawableLeft="@drawable/ic_hapus"
-                android:layout_weight="1"
-                android:layout_marginLeft="2dp"
-                android:textStyle="bold"
-                android:backgroundTint="#978468"/>
+                android:backgroundTint="#978468"
+                android:textStyle="bold"/>
             <Button
                 android:id="@+id/btn_detail"
                 android:layout_width="match_parent"
@@ -76,7 +70,18 @@
                 android:drawableLeft="@drawable/ic_detail"
                 android:layout_weight="1"
                 android:layout_marginLeft="2dp"
-                android:backgroundTint="#978468"/>
+                android:backgroundTint="#978468"
+                android:textStyle="bold"/>
+            <Button
+                android:id="@+id/btn_hapus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hapus"
+                android:drawableLeft="@drawable/ic_hapus"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:backgroundTint="#978468"
+                android:textStyle="bold"/>
 
 
         </LinearLayout>

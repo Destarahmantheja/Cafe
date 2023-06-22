@@ -4,43 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="6dp"
     android:orientation="vertical"
     tools:context=".Activity.TambahActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tambah"
+        android:text="Ubah"
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:textStyle="bold"
-        android:textSize="20dp"/>
+        android:textSize="25sp"/>
 
     <EditText
         android:id="@+id/et_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="ID"/>
+        android:hint="ID"/>
     <EditText
         android:id="@+id/et_nama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nama"/>
+        android:hint="Nama"/>
     <EditText
         android:id="@+id/et_alamat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Alamat"/>
+        android:hint="Alamat"/>
     <EditText
         android:id="@+id/et_deskripsi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Deskripsi"/>
+        android:hint="Deskripsi"/>
     <EditText
         android:id="@+id/et_rating"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Rating"/>
+        android:hint="Rating"/>
+    <EditText
+        android:id="@+id/et_koordinat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Koordinat"/>
     <Button
         android:id="@+id/btn_ubah"
         android:layout_width="match_parent"

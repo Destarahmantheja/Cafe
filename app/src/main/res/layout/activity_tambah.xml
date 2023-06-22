@@ -40,6 +40,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Rating"/>
+    <EditText
+        android:id="@+id/et_koordinat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Koordinat"/>
     <Button
         android:id="@+id/btn_tambah"
         android:layout_width="match_parent"

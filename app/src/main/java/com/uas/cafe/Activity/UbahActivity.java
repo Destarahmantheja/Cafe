@@ -21,10 +21,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class UbahActivity extends AppCompatActivity {
-    private String yId, yNama, yAlamat, yDeskripsi, yRating;
-    private EditText etNama, etAlamat, etDeskripsi, etRating;
+    private String yId, yNama, yAlamat, yDeskripsi, yRating, yKoordinat;
+    private EditText etNama, etAlamat, etDeskripsi, etRating, etKoordinat;
     private Button btnUbah;
-    private String nama, alamat, deskripsi, rating;
+    private String nama, alamat, deskripsi, rating, koordinat;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -37,12 +37,14 @@ public class UbahActivity extends AppCompatActivity {
         yAlamat = ambil.getStringExtra("xAlamat");
         yDeskripsi = ambil.getStringExtra("xDeskripsi");
         yRating = ambil.getStringExtra("xRating");
+        yKoordinat = ambil.getStringExtra("xKoordinat");
 
         //findview kan semua view/widget yang dipakai
         etNama = findViewById(R.id.et_nama);
         etAlamat = findViewById(R.id.et_alamat);
         etDeskripsi = findViewById(R.id.et_deskripsi);
         etRating = findViewById(R.id.et_rating);
+        etKoordinat = findViewById(R.id.et_koordinat);
         btnUbah = findViewById(R.id.btn_ubah);
 
         //set kiriman yang sudah ditangkap tadi, ke view/widget yang sudah difindview tadi
@@ -50,6 +52,7 @@ public class UbahActivity extends AppCompatActivity {
         etAlamat.setText(yAlamat);
         etDeskripsi.setText(yDeskripsi);
         etRating.setText(yRating);
+        etKoordinat.setText(yKoordinat);
 
 
         //mulai mainkan kalau tombol ubah diklik
@@ -60,6 +63,7 @@ public class UbahActivity extends AppCompatActivity {
                 alamat = etAlamat.getText().toString();
                 deskripsi = etDeskripsi.getText().toString();
                 rating = etRating.getText().toString();
+                koordinat = etKoordinat.getText().toString();
 
                 if (nama.trim().isEmpty()){
                     etNama.setError("Nama Tidak Boleh Kosong");
@@ -73,7 +77,9 @@ public class UbahActivity extends AppCompatActivity {
                 else if (rating.trim().isEmpty()){
                     etRating.setError("Deskripsi Tidak Boleh Kosong");
                 }
-                else {
+                else if (rating.trim().isEmpty()) {
+                    etRating.setError("Deskripsi Tidak Boleh Kosong");
+                }else {
                     ubahCafe();
                 }
             }
@@ -81,7 +87,7 @@ public class UbahActivity extends AppCompatActivity {
     }
     private void ubahCafe(){
         APIRequestData API = RetroServer.konekRetrofit().create(APIRequestData.class);
-        Call<ModelRespon> proses = API.ardUpdate(yId, nama, alamat, deskripsi, rating);
+        Call<ModelRespon> proses = API.ardUpdate(yId, nama, alamat, deskripsi, rating, koordinat);
 
         proses.enqueue(new Callback<ModelRespon>() {
             @Override

@@ -20,9 +20,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class TambahActivity extends AppCompatActivity {
-    private EditText etNama, etAlamat, etDeskripsi, etRating;
+    private EditText etNama, etAlamat, etDeskripsi, etRating, etKoordinat;
     private Button btnTambah;
-    private String nama, alamat, deskripsi, rating;
+    private String nama, alamat, deskripsi, rating, koordinat;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class TambahActivity extends AppCompatActivity {
         etAlamat = findViewById(R.id.et_alamat);
         etDeskripsi = findViewById(R.id.et_deskripsi);
         etRating = findViewById(R.id.et_rating);
+        etKoordinat = findViewById(R.id.et_koordinat);
         btnTambah = findViewById(R.id.btn_tambah);
 
         btnTambah.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +43,7 @@ public class TambahActivity extends AppCompatActivity {
                 alamat = etAlamat.getText().toString();
                 deskripsi = etDeskripsi.getText().toString();
                 rating = etRating.getText().toString();
+                koordinat = etKoordinat.getText().toString();
 
                 if (nama.trim().isEmpty()) {
                     etNama.setError("Nama tidak boleh kosong");
@@ -51,6 +53,8 @@ public class TambahActivity extends AppCompatActivity {
                     etDeskripsi.setError("Deskripsi tidak boleh kosong");
                 } else if (rating.trim().isEmpty()) {
                     etRating.setError("Rating tidak boleh kosong");
+                } else if (koordinat.trim().isEmpty()) {
+                    etKoordinat.setError("Koordinat tidak boleh kosong");
                 } else {
                     tambahCafe();
                 }
@@ -60,7 +64,7 @@ public class TambahActivity extends AppCompatActivity {
     }
     private void tambahCafe () {
         APIRequestData API = RetroServer.konekRetrofit().create(APIRequestData.class);
-        retrofit2.Call<ModelRespon> proses = API.ardCreate(nama, alamat, deskripsi, rating);
+        retrofit2.Call<ModelRespon> proses = API.ardCreate(nama, alamat, deskripsi, rating, koordinat);
 
         proses.enqueue(new Callback<ModelRespon>() {
             @Override

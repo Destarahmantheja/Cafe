@@ -1,7 +1,7 @@
 package com.uas.cafe.Model;
 
 public class ModelCafe {
-    private String id, nama, alamat, deskripsi, rating;
+    private String id, nama, alamat, deskripsi, rating, koordinat;
 
 
     public String getId() {
@@ -18,5 +18,8 @@ public class ModelCafe {
     }
     public String getRating() {
         return rating;
+    }
+    public String getKoordinat() {
+        return koordinat;
     }
 }

@@ -8,8 +8,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.uas.cafe.R;
 
 public class DetailActivity extends AppCompatActivity {
-    private TextView tvId, tvNama, tvAlamat, tvDeskripsi, tvRating;
-    private String detId, detNama, detAlamat, detDeskripsi, detRating;
+    private TextView tvId, tvNama, tvAlamat, tvDeskripsi, tvRating, tvKoordinat;
+    private String detId, detNama, detAlamat, detDeskripsi, detRating, detKoordinat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ public class DetailActivity extends AppCompatActivity {
         tvAlamat = findViewById(R.id.tv_alamat);
         tvDeskripsi = findViewById(R.id.tv_deskripsi);
         tvRating = findViewById(R.id.tv_rating);
+        tvKoordinat = findViewById(R.id.tv_koordinat);
 
 
         Intent terima = getIntent();
@@ -29,6 +30,7 @@ public class DetailActivity extends AppCompatActivity {
         detAlamat = terima.getStringExtra("xAlamat");
         detDeskripsi = terima.getStringExtra("xDeskripsi");
         detRating = terima.getStringExtra("xRating");
+        detKoordinat = terima.getStringExtra("xKoordinat");
 
 
         tvId.setText(detId);
@@ -36,6 +38,7 @@ public class DetailActivity extends AppCompatActivity {
         tvAlamat.setText(detAlamat);
         tvDeskripsi.setText(detDeskripsi);
         tvRating.setText(detRating);
+        tvKoordinat.setText(detKoordinat);
 
     }
 }

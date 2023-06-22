@@ -20,7 +20,8 @@ public interface APIRequestData {
             @Field("nama") String nama,
             @Field("alamat") String alamat,
             @Field("deskripsi") String deskripsi,
-            @Field("rating") String rating
+            @Field("rating") String rating,
+            @Field("koordinat") String koordinat
     );
 
     @FormUrlEncoded
@@ -30,7 +31,8 @@ public interface APIRequestData {
             @Field("nama") String nama,
             @Field("alamat") String alamat,
             @Field("deskripsi") String deskripsi,
-            @Field("rating") String rating
+            @Field("rating") String rating,
+            @Field("koordinat") String koordinat
     );
 
     @FormUrlEncoded

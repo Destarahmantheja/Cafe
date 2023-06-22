@@ -47,14 +47,15 @@ public class AdapterCafe extends RecyclerView.Adapter<AdapterCafe.VHCafe> {
         holder.tvAlamat.setText(MC.getAlamat());
         holder.tvDeskripsi.setText(MC.getDeskripsi());
         holder.tvRating.setText(MC.getRating());
+        holder.tvKoordinat.setText(MC.getKoordinat());
     }
     @Override
     public int getItemCount() {
         return listCafe.size();
     }
     public class VHCafe extends RecyclerView.ViewHolder{
-        TextView tvId, tvNama, tvAlamat, tvDeskripsi, tvRating;
-        Button btnHapus, btnUbah, btnDetail;
+        TextView tvId, tvNama, tvAlamat, tvDeskripsi, tvRating, tvKoordinat;
+        Button btnHapus, btnDetail, btnUbah;
 
         public VHCafe(@NonNull View itemView) {
             super(itemView);
@@ -64,6 +65,7 @@ public class AdapterCafe extends RecyclerView.Adapter<AdapterCafe.VHCafe> {
             tvAlamat = itemView.findViewById(R.id.tv_alamat);
             tvDeskripsi = itemView.findViewById(R.id.tv_deskripsi);
             tvRating = itemView.findViewById(R.id.tv_rating);
+            tvKoordinat = itemView.findViewById(R.id.tv_koordinat);
             btnHapus = itemView.findViewById(R.id.btn_hapus);
             btnUbah = itemView.findViewById(R.id.btn_ubah);
             btnDetail = itemView.findViewById(R.id.btn_detail);
@@ -84,6 +86,7 @@ public class AdapterCafe extends RecyclerView.Adapter<AdapterCafe.VHCafe> {
                     pindah.putExtra("xAlamat", tvAlamat.getText().toString());
                     pindah.putExtra("xDeskripsi", tvDeskripsi.getText().toString());
                     pindah.putExtra("xRating", tvRating.getText().toString());
+                    pindah.putExtra("xKoordinat", tvKoordinat.getText().toString());
                     ctx.startActivity(pindah);
 
                 }
@@ -97,6 +100,7 @@ public class AdapterCafe extends RecyclerView.Adapter<AdapterCafe.VHCafe> {
                     pindah.putExtra("xAlamat", tvAlamat.getText().toString());
                     pindah.putExtra("xDeskripsi", tvDeskripsi.getText().toString());
                     pindah.putExtra("xRating", tvRating.getText().toString());
+                    pindah.putExtra("xKoordinat", tvKoordinat.getText().toString());
                     ctx.startActivity(pindah);
                 }
             });

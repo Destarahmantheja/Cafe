@@ -7,18 +7,18 @@
     android:background="#978468">
 
     <ImageView
-        android:id="@+id/iv_splash"
-        android:layout_width="350dp"
-        android:layout_height="566dp"
-        android:layout_centerInParent="true"
+        android:id="@+id/iv_splash_screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:src="@drawable/cafephoto" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_below="@+id/iv_splash"
-        android:fontFamily="monospace"
-        android:textColor="@color/black"
-        android:textSize="30dp" />
+        android:layout_centerHorizontal="true"
+        android:text="Cafe"
+        android:textColor="#452222"
+        android:textStyle="bold"
+        android:textSize="30sp" />
 
 </RelativeLayout>

@@ -16,35 +16,35 @@
         android:textSize="22dp"/>
 
     <EditText
-        android:id="@+id/et_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ID"/>
-    <EditText
         android:id="@+id/et_nama"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nama"/>
+        android:hint="Nama"
+        android:inputType="text"/>
     <EditText
         android:id="@+id/et_alamat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Alamat"/>
+        android:hint="Alamat"
+        android:inputType="text"/>
     <EditText
         android:id="@+id/et_deskripsi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Deskripsi"/>
+        android:hint="Deskripsi"
+        android:inputType="text"/>
     <EditText
         android:id="@+id/et_rating"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Rating"/>
+        android:hint="Rating"
+        android:inputType="text"/>
     <EditText
         android:id="@+id/et_koordinat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Koordinat"/>
+        android:hint="Koordinat"
+        android:inputType="text"/>
     <Button
         android:id="@+id/btn_tambah"
         android:layout_width="match_parent"

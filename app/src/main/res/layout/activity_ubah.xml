@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:layout_margin="6dp"
     android:orientation="vertical"
-    tools:context=".Activity.TambahActivity">
+    tools:context=".Activity.UbahActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ubah"
+        android:text="Ubah Data"
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:textStyle="bold"

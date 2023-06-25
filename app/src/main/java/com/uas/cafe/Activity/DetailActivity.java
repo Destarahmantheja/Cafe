@@ -30,7 +30,7 @@ public class DetailActivity extends AppCompatActivity {
         detRating = terima.getStringExtra("xRating");
         detKoordinat = terima.getStringExtra("xKoordinat");
 
-        
+
         tvNama.setText(detNama);
         tvAlamat.setText(detAlamat);
         tvDeskripsi.setText(detDeskripsi);
